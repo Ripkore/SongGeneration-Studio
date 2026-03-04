@@ -15,14 +15,7 @@ module.exports = {
         ]
       }
     },
-    // 2. Download new_prompt.pt (Tencent reached its quota - git clone with lfs fails)
-    {
-      method: "fs.download",
-      params: {
-        dir: "app/tools",
-        uri: "https://github.com/tencent-ailab/SongGeneration/raw/refs/heads/main/tools/new_prompt.pt?download="
-      }
-    },
+    
     // 3. Download model weights from HuggingFace (ckpt/, third_party/)
     {
       method: "hf.download",
