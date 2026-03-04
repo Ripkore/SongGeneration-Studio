@@ -15,13 +15,14 @@ module.exports = {
         ]
       }
     },
-    // 2. Skip new_prompt.pt download (file no longer exists in Tencent repo)
-{
-  method: "shell.run",
-  params: {
-    message: ["echo 'Skipping new_prompt.pt download — file already provided locally.'"]
-  }
-},
+    // 2. Download new_prompt.pt (Tencent reached its quota - git clone with lfs fails)
+    {
+      method: "fs.download",
+      params: {
+        dir: "app/tools",
+        uri: "https://github.com/tencent-ailab/SongGeneration/raw/refs/heads/main/tools/new_prompt.pt?download="
+      }
+    },
     // 3. Download model weights from HuggingFace (ckpt/, third_party/)
     {
       method: "hf.download",
